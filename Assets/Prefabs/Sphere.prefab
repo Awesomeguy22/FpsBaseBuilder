@@ -60,7 +60,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 0a18d0468bab1c64cbce30c0b25e1a65, type: 2}
+  - {fileID: 2100000, guid: 437bc828d47d1524d86f65ce6a6f8c92, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -117,7 +117,6 @@ MonoBehaviour:
   parentName: 
   hasGlueScript: 0
   justLoaded: 0
-  fixedBodyCount: 0
 --- !u!54 &1097860383150181236
 Rigidbody:
   m_ObjectHideFlags: 0

@@ -19,6 +19,7 @@ GameObject:
   - component: {fileID: 8368030280798922279}
   - component: {fileID: 4475117466916117453}
   - component: {fileID: 6385762778139830361}
+  - component: {fileID: 7597230272897125447}
   - component: {fileID: -44667165763332329}
   - component: {fileID: -4125054457645006344}
   m_Layer: 0
@@ -98,7 +99,7 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1.6, y: 0.9, z: 0.06}
+  m_Size: {x: 1.6, y: 0.8, z: 0.06}
   m_Center: {x: 0, y: -0.05, z: -0.44}
 --- !u!65 &2310267182203841011
 BoxCollider:
@@ -111,7 +112,7 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1.6, y: 0.9, z: 0.05}
+  m_Size: {x: 1.6, y: 0.8, z: 0.05}
   m_Center: {x: 0, y: -0.05, z: 0.44}
 --- !u!65 &8539050456185155460
 BoxCollider:
@@ -124,7 +125,7 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.05, y: 0.86, z: 0.95}
+  m_Size: {x: 0.05, y: 0.8, z: 0.95}
   m_Center: {x: -0.83, y: -0.05, z: 0}
 --- !u!65 &257007725697718447
 BoxCollider:
@@ -137,7 +138,7 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.05, y: 0.86, z: 0.95}
+  m_Size: {x: 0.05, y: 0.8, z: 0.95}
   m_Center: {x: 0.83, y: -0.05, z: 0}
 --- !u!65 &2041410483032643076
 BoxCollider:
@@ -191,6 +192,19 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1.75, y: 0.15, z: 0.25}
   m_Center: {x: 0, y: 0.5, z: -0.55}
+--- !u!65 &7597230272897125447
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5346470689230237613}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1.7, y: 0.05, z: 0.94}
+  m_Center: {x: 0, y: -0.45, z: 0}
 --- !u!54 &-44667165763332329
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -222,7 +236,12 @@ MonoBehaviour:
   blockRb: {fileID: 0}
   objectRotation: {x: 0, y: 0, z: 0}
   objectPosition: {x: 0, y: 0, z: 0}
+  objectScale: {x: 0, y: 0, z: 0}
   rbVelocity: {x: 0, y: 0, z: 0}
   rbAngularVelocity: {x: 0, y: 0, z: 0}
   objectName: 
+  objectTag: 
   prefabName: BathTub
+  parentName: 
+  hasGlueScript: 0
+  justLoaded: 0

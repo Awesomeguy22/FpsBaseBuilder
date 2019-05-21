@@ -41,8 +41,14 @@ public class InventoryScript : MonoBehaviour
                 activeItemIndex--;
         }
 
-        
-                if (previousActiveItemIndex != activeItemIndex || transform.childCount == 1)
+        if (Input.GetButtonDown("Fire1") || Input.GetButtonDown("Fire2"))
+        {
+            
+                activeItemIndex = 0;
+        }
+
+
+        if (previousActiveItemIndex != activeItemIndex || transform.childCount == 1)
         {
             SelectItem();
         }
@@ -63,7 +69,7 @@ public class InventoryScript : MonoBehaviour
         }
     }
 
-    void SelectItem()
+    public void SelectItem()
     {
         int i = 0;
         bool canDrop = false;

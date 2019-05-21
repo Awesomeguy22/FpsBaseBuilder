@@ -118,7 +118,7 @@
     <Compile Include="Assets\Scripts\SavingAndLoading\BlockSaveManager.cs" />
     <Compile Include="Assets\Scripts\SavingAndLoading\DataClasses\BlockData.cs" />
     <Compile Include="Assets\Scripts\SavingAndLoading\DataClasses\PlayerData.cs" />
-    <Compile Include="Assets\Scripts\SavingAndLoading\DataClasses\SaveSysteme.cs" />
+    <Compile Include="Assets\Scripts\SavingAndLoading\DataClasses\SaveSystem.cs" />
     <Compile Include="Assets\Scripts\SavingAndLoading\PlayerSaveManager.cs" />
     <Compile Include="Assets\Scripts\SpawnRandomBlocks.cs" />
     <None Include="Assets\Fps\CrossPlatformInput\CrossPlatformInputGuidelines.txt" />

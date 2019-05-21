@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class GlueScript : MonoBehaviour
 {
-    public float Seconds = 10f;
+    private float Seconds = 0.1f;
+    private float breakForce = 150f;
     private FixedJoint fj;
 
     private List <GameObject> previousHits = new List<GameObject>();
@@ -12,9 +13,6 @@ public class GlueScript : MonoBehaviour
     public float fixedBodyCount;
     public bool justLoaded;
 
-    // private List<Collision> collisions = new List<Collision>();
-
-    // private List<FixedJoint> fixedJoints = new List<FixedJoint>();
     void Update()
     {
         foreach(FixedJoint _fixedJoint in gameObject.GetComponents<FixedJoint>())
@@ -43,32 +41,41 @@ public class GlueScript : MonoBehaviour
         foreach(GameObject hit in previousHits)
         {
             if(hit == collision.gameObject)
-            {
                 canGlue = false;
-            }
-            else
-            {
+            else      
                 canGlue = true;
-            }
         }
         // if it has a rigid body and is on a tower
-        if (((canGlue == true) && collision.rigidbody != null && collision.gameObject.tag == "Tower") || collision.gameObject.tag == "Foundation")
+        if ( canGlue == true && collision.rigidbody != null && collision.gameObject.tag == "Tower" || collision.gameObject.tag == "Foundation")
         {
-
-            StartCoroutine(Wait(Seconds));
+            //StartCoroutine(Glue(Seconds, collision));
             gameObject.tag = "Tower";
             fj = gameObject.AddComponent<FixedJoint>();
             fj.connectedBody = collision.rigidbody;
+            fj.breakForce = breakForce;
             previousHits.Add(collision.gameObject);
+            
+            
 
         }
         // no leftover gluescripts 4 me
-        //else Destroy(this);
+        
+        else if (collision.gameObject.GetComponent<GlueScript>() == null)
+        {
+            DestroyFixedJoints();
+            Destroy(this);
+
+        }
     }
 
-    IEnumerator Wait(float Seconds)
+    IEnumerator Glue(float Seconds, Collision collision)
     {
         yield return new WaitForSeconds(Seconds);
+        if (collision.rigidbody != this.gameObject.GetComponent<Rigidbody>())
+        {
+            
+        }
+        
     }
 
    
@@ -91,7 +98,7 @@ public class GlueScript : MonoBehaviour
             {
                 if (_fj.connectedBody.gameObject.GetComponent<GlueScript>() != null)
                 {
-                    Debug.Log(_fj.connectedBody.name);
+                    //Debug.Log(_fj.connectedBody.name);
                     _fj.connectedBody.gameObject.GetComponent<GlueScript>().DetachGameobject(gameObject);
                 }
             }
@@ -106,7 +113,7 @@ public class GlueScript : MonoBehaviour
         {
             if(_fixedJoint.connectedBody == _detachedGameObject.GetComponent<Rigidbody>())
             {
-                Debug.Log("Destroy");
+                //Debug.Log("Destroy");
                 Destroy(_fixedJoint);
             }
         }

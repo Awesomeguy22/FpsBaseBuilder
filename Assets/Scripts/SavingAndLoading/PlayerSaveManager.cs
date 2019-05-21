@@ -36,13 +36,13 @@ public class PlayerSaveManager : MonoBehaviour
     public void SavePlayer()
     {
         Debug.Log("saveone");
-        SaveSysteme.SavePlayer(this);
+        SaveSystem.SavePlayer(this);
     }
 
     public void LoadPlayer()
     {
         gameObject.GetComponent<CharacterController>().enabled = false;
-        PlayerData data = SaveSysteme.LoadPlayer();
+        PlayerData data = SaveSystem.LoadPlayer();
 
         gameObject.name = data.name;
 

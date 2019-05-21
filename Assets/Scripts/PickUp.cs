@@ -52,6 +52,7 @@ public class PickUp : MonoBehaviour
                 GameObject hitter = Instantiate(pickObject, transform);
                 hitter.transform.position = transform.position;
                 hitter.transform.rotation = transform.rotation;
+                hitter.GetComponent<BlockSaveManager>().isInventoryObJect = true;
 
                 // Checks for gluescript
                 if (hitter.GetComponent<GlueScript>() != null)

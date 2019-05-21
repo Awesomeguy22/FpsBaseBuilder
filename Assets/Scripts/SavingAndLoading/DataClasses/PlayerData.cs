@@ -12,6 +12,7 @@ public class PlayerData{
 
     public string name;
 
+
     public PlayerData(PlayerSaveManager playerSaveManager)
     {
         position = new float[3];
@@ -34,7 +35,7 @@ public class PlayerData{
         rigidbodyAngularVelocity[1] = playerSaveManager.rbAngularVelocity.y;
         rigidbodyAngularVelocity[2] = playerSaveManager.rbAngularVelocity.z;
 
-        Debug.Log(position[0] +""+ position[1] +""+ position[2]);
+
         name = playerSaveManager.name;
     }
 }

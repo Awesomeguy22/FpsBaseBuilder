@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class BlockSaveManager : MonoBehaviour
 {
+    public string inventoryTag = "Inventory";
     public Rigidbody blockRb;
 
     public Vector3 objectRotation;
@@ -17,12 +18,13 @@ public class BlockSaveManager : MonoBehaviour
     public string objectTag;
     public string prefabName;
 
-    public string parentName;
+    //public string parentName;
 
     public bool hasGlueScript;
+    public bool isInventoryObJect;
     public bool justLoaded;
 
-    public float fixedBodyCount;
+    //public float fixedBodyCount;
 
     void Start()
     {
@@ -34,14 +36,8 @@ public class BlockSaveManager : MonoBehaviour
         if (justLoaded == false)
         {
             objectName = gameObject.name;
-            if (transform.parent != null)
-            {
-                parentName = transform.parent.name;
-            }
-            else
-            {
-                parentName = null;
-            }
+            objectTag = gameObject.tag;
+            
 
             if (gameObject.GetComponent<GlueScript>() != null)
             {
@@ -58,7 +54,17 @@ public class BlockSaveManager : MonoBehaviour
             rbVelocity = blockRb.velocity;
             rbAngularVelocity = blockRb.angularVelocity;
 
-            fixedBodyCount = gameObject.GetComponents<FixedJoint>().Length;
+            
+            if(transform.parent != null && transform.parent.tag == inventoryTag)
+            {
+                isInventoryObJect = true;
+            }
+            else
+            {
+                isInventoryObJect = false;
+            }
+
+            //fixedBodyCount = gameObject.GetComponents<FixedJoint>().Length;
         }
 
     }
@@ -68,9 +74,10 @@ public class BlockSaveManager : MonoBehaviour
 
         objectName = _block.name;
         objectTag = _block.tag;
-        parentName = _block.parentName;
+        //parentName = _block.parentName;
 
         hasGlueScript = _block.hasGlueScript;
+        isInventoryObJect = _block.isInventoryObject;
 
         Vector3 _position;
 
@@ -116,43 +123,37 @@ public class BlockSaveManager : MonoBehaviour
 
         rbAngularVelocity = _angularVelocity;
 
-        fixedBodyCount = _block.fixedBodyCount;
+        //fixedBodyCount = _block.fixedBodyCount;
     }
     public void LoadBlock()
     {
 
         gameObject.name = objectName;
         gameObject.tag = objectTag;
-
-        if (parentName != null)
-        {
-            transform.SetParent(GameObject.Find(parentName).transform);
-        }
-
         blockRb = gameObject.GetComponent<Rigidbody>();
 
-        transform.position = objectPosition;
-
-        if (transform.parent != null)
+        if (isInventoryObJect)
         {
-            foreach (Collider _collider in gameObject.GetComponents<Collider>())
-            {
-                _collider.isTrigger = true;
-            }
-            gameObject.SetActive(false);
-            blockRb.useGravity = false;
+            transform.SetParent(GameObject.FindGameObjectWithTag("Inventory").transform);
             transform.position = transform.parent.position;
+            transform.rotation = transform.parent.rotation;
+            transform.localScale = objectScale;
+            blockRb.useGravity = false;
+            gameObject.SetActive(false);
         }
-        // Debug.Log(_rotation);
-        transform.rotation = Quaternion.Euler(objectRotation);
-        transform.localScale = objectScale;
-
-        if (hasGlueScript == true)
+        else
         {
-            Debug.Log("GlueScriptAdded");
-            GlueScript gluyScripty = gameObject.AddComponent<GlueScript>();
-            gluyScripty.justLoaded = true;
-            gluyScripty.fixedBodyCount = fixedBodyCount;
+            transform.position = objectPosition;
+
+            transform.rotation = Quaternion.Euler(objectRotation);
+            transform.localScale = objectScale;
+
+            if (hasGlueScript == true)
+            {
+                //Debug.Log("GlueScriptAdded");
+                GlueScript glueScript = gameObject.AddComponent<GlueScript>();
+                glueScript.justLoaded = true;
+            }
         }
 
     }

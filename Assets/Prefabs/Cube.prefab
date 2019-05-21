@@ -13,9 +13,10 @@ GameObject:
   - component: {fileID: 7736469097895097550}
   - component: {fileID: 9177487446090261134}
   - component: {fileID: 3856954864767075567}
+  - component: {fileID: -5218429056623689568}
   m_Layer: 0
   m_Name: Cube
-  m_TagString: Untagged
+  m_TagString: Block
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -59,7 +60,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 0a18d0468bab1c64cbce30c0b25e1a65, type: 2}
+  - {fileID: 2100000, guid: 68e29e24d19430642889a07778886d2d, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -108,3 +109,27 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &-5218429056623689568
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4081590695685786767}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e3e54e71884d443cc91fe6e92d6922ab, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  blockRb: {fileID: 0}
+  objectRotation: {x: 0, y: 0, z: 0}
+  objectPosition: {x: 0, y: 0, z: 0}
+  objectScale: {x: 0, y: 0, z: 0}
+  rbVelocity: {x: 0, y: 0, z: 0}
+  rbAngularVelocity: {x: 0, y: 0, z: 0}
+  objectName: 
+  objectTag: 
+  prefabName: 
+  parentName: 
+  hasGlueScript: 0
+  justLoaded: 0

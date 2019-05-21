@@ -10,17 +10,9 @@ public class Blocks_SaveManager : MonoBehaviour
 
     public BlockData[] blocksInScene;
 
-    // Start is called before the first frame update
-    void Start()
-    {
+    public GameObject inventoryObject;
 
-    }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 
     public void SaveBlocks()
     {
@@ -33,21 +25,29 @@ public class Blocks_SaveManager : MonoBehaviour
                 objectsWithBlockTag.Add(_blockWithTag);
             }
         }
+        for (int j = 0; j <= inventoryObject.transform.childCount - 1; j++)
+        {
+            GameObject _child = inventoryObject.transform.GetChild(j).gameObject;
+            if (_child.tag == "Block")
+            {
+                objectsWithBlockTag.Add(_child);
+            }
+        }
         blocksInScene = new BlockData[objectsWithBlockTag.Count];
 
         int i = 0;
         foreach (GameObject _block in objectsWithBlockTag)
         {
-            Debug.Log(_block.name);
+            //Debug.Log(_block.name);
             blocksInScene[i] = new BlockData(_block.GetComponent<BlockSaveManager>());
             i++;
         }
-        SaveSysteme.SaveBlock(blocksInScene);
+        SaveSystem.SaveBlock(blocksInScene);
     }
 
     public void LoadBlocks()
     {
-        blocksInScene = SaveSysteme.LoadBlocks();
+        blocksInScene = SaveSystem.LoadBlocks();
 
         GameObject[] blocksSpawned;
         blocksSpawned = new GameObject[blocksInScene.Length];
@@ -62,6 +62,15 @@ public class Blocks_SaveManager : MonoBehaviour
             }
         }
 
+        for (int j = 0 ; j <= inventoryObject.transform.childCount - 1; j++)
+        {
+            GameObject _child = inventoryObject.transform.GetChild(j).gameObject;
+            if(_child.tag == "Block")
+            {
+                Destroy(_child);
+            }
+        }
+
        /** foreach (GameObject _block in objectsWithBlockTag)
         {
             Destroy(_block);
@@ -70,7 +79,7 @@ public class Blocks_SaveManager : MonoBehaviour
         int i = 0;
         foreach(BlockData _blockData in blocksInScene)
         {
-            Debug.Log(_blockData.name);
+            //Debug.Log(_blockData.name);
 
             GameObject _usingBlockPrefab = null;
 
@@ -78,7 +87,6 @@ public class Blocks_SaveManager : MonoBehaviour
             {
                 if (_blockPrefab.GetComponent<BlockSaveManager>().prefabName == _blockData.prefabName)
                 {
-                    Debug.Log("Name");
                     _usingBlockPrefab = _blockPrefab;
                 }
             }
@@ -92,12 +100,16 @@ public class Blocks_SaveManager : MonoBehaviour
         foreach(GameObject _blockSpawned in blocksSpawned)
         {
             _blockSpawned.GetComponent<BlockSaveManager>().LoadBlock();
-            _blockSpawned.SetActive(true);
+            if (_blockSpawned.transform.parent == null)
+                _blockSpawned.SetActive(true);
         }
         foreach (GameObject _blockSpawned in blocksSpawned)
         {
-            _blockSpawned.GetComponent<BlockSaveManager>().LoadPhysics();
-            _blockSpawned.SetActive(true);
+            if (_blockSpawned.transform.parent == null)
+            {
+                _blockSpawned.GetComponent<BlockSaveManager>().LoadPhysics();
+                _blockSpawned.SetActive(true);
+            }
         }
 
     }

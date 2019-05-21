@@ -9,6 +9,7 @@ TagManager:
   - AxisHolder
   - Tower
   - Foundation
+  - Inventory
   layers:
   - Default
   - TransparentFX

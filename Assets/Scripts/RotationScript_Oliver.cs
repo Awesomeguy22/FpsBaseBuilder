@@ -6,8 +6,8 @@ public class RotationScript_Oliver : MonoBehaviour
 {
 
     Rigidbody rb;
-    public float rotateSpeed = 5f;
-
+    float rotateSpeed = 5f;
+    float pushForce = 100f;
     private bool canDrop = true;
     //Array storing bools x = 0 y = 1 z = 2
     private BitArray Trinary = new BitArray(3);
@@ -101,17 +101,19 @@ public class RotationScript_Oliver : MonoBehaviour
             AxisChange();
         }
 
-        //drops currently selected block on e press
+        //throws currently selected block on e press
         if (Input.GetKeyDown("e") && canDrop)
         {
             foreach (Collider collider in gameObject.GetComponents<Collider>())
             {
                 collider.isTrigger = false;
             }
-
+            gameObject.GetComponent<BlockSaveManager>().isInventoryObJect = false;
+            Vector3 forceDirection = transform.parent.transform.forward;
             gameObject.transform.SetParent(null);
             gameObject.AddComponent<GlueScript>();
             rb.useGravity = true;
+            rb.AddForce(forceDirection * pushForce);
 
             Destroy(this);
         }
@@ -181,13 +183,15 @@ public class RotationScript_Oliver : MonoBehaviour
        private void OnTriggerEnter(Collider other)
     {
         canDrop = false;
+        //Debug.Log("Cannot drop");
         
     }
 
     void OnTriggerExit(Collider other)
     {
         canDrop = true;
-        
+        //Debug.Log("Can drop");
+
     }
 }
 

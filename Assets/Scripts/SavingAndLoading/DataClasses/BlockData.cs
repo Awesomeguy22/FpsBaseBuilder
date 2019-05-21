@@ -15,10 +15,11 @@ public class BlockData{
     public string name;
     public string tag;
     public string prefabName;
-    public string parentName;
+    //public string parentName;
 
     public bool hasGlueScript;
-    public float fixedBodyCount;
+    public bool isInventoryObject;
+    //public float fixedBodyCount;
 
     public BlockData(BlockSaveManager _blockSaveManager)
     {
@@ -47,13 +48,11 @@ public class BlockData{
         rigidbodyAngularVelocity[1] = _blockSaveManager.rbAngularVelocity.y;
         rigidbodyAngularVelocity[2] = _blockSaveManager.rbAngularVelocity.z;
 
-        //Debug.Log(position[0] + "" + position[1] + "" + position[2]);
         name = _blockSaveManager.name;
         tag = _blockSaveManager.tag;
         prefabName = _blockSaveManager.prefabName;
-        parentName = _blockSaveManager.parentName;
 
         hasGlueScript = _blockSaveManager.hasGlueScript;
-        fixedBodyCount = _blockSaveManager.fixedBodyCount;
+        isInventoryObject = _blockSaveManager.isInventoryObJect;
     }
 }

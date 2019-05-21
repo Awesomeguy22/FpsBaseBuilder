@@ -55,6 +55,9 @@ public class SpawnRandomBlocks : MonoBehaviour
                     ObjectInstance.transform.localScale = new Vector3(Scale, Scale, Scale);
                     ObjectInstance.transform.position = new Vector3(posX, posY, posZ);
 
+                    string objectName = ObjectInstance.name;
+                    ObjectInstance.name = objectName + i.ToString();
+
 
 
                 }
