@@ -1,19 +1,16 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using UnityEngine.AI;
 public class EnemyController : MonoBehaviour
 {
 
-    public string[] findTags ;
-
-
-    void Update()
+    private void Start()
     {
-        
     }
 
-    public GameObject FindClosestPlayer(string[] tags)
+   
+    public GameObject FindNearestTaggedObject(string[] tags)
     {
 
         GameObject closestGameObject = null;
