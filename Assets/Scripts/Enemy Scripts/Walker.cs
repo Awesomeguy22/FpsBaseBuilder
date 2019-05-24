@@ -21,15 +21,7 @@ public class Walker : MonoBehaviour
     {
         GameObject target = FindNearestTaggedObject(findTags);
         enemyNavMeshAgent.SetDestination(target.transform.position);
-
-        if (Vector3.Distance(target.transform.position, transform.position) < 2) {
-            enemyNavMeshAgent.isStopped = true;
-        }
-        else
-        {
-            enemyNavMeshAgent.isStopped = false;
-        }
-
+        
     }
 
 
