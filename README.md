@@ -4,21 +4,21 @@ Big potate,
 
 Fred to-do
 
-Enemy save and load,
+-Enemy save and load,
 
-Block health save and load,
+-Block health save and load,
 
-assets:
+-assets:
 Bench?
 Chair?
 Lampost?
 
 Oliver to-do
 
-combat
+-combat
 
-health systems
+-health systems
 
-turret
+-turret
 
-block health
+-block health
