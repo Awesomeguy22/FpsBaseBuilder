@@ -40,7 +40,7 @@ public class Charger : MonoBehaviour
 
 
         counter += Time.deltaTime;
-        if (counter > chargeInterval )
+        if (counter > chargeInterval)
         {
             // Charging
             enemyNavMeshAgent.isStopped = false;

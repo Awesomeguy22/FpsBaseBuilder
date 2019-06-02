@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class GlueScript : MonoBehaviour
 {
-    private float Seconds = 0.1f;
+    //private float Seconds = 0.05f;
     private float breakForce = 150f;
     private FixedJoint fj;
 

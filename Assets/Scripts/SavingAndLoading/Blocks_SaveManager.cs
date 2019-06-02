@@ -6,13 +6,16 @@ public class Blocks_SaveManager : MonoBehaviour
 {
     public string[] blockTags;
 
-    public GameObject[] blockPrefabs;
+    private GameObject[] blockPrefabs;
 
     public BlockData[] blocksInScene;
 
     public GameObject inventoryObject;
 
-
+    private void Start()
+    {
+        blockPrefabs = GetComponent<SpawnRandomBlocks>().PossibleObjects;
+    }
 
     public void SaveBlocks()
     {

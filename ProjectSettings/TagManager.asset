@@ -10,6 +10,7 @@ TagManager:
   - Tower
   - Foundation
   - Inventory
+  - Tile
   layers:
   - Default
   - TransparentFX

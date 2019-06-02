@@ -62,71 +62,73 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assets\Fps\Characters\FirstPersonCharacter\Scripts\FirstPersonController.cs" />
-    <Compile Include="Assets\Fps\Characters\FirstPersonCharacter\Scripts\HeadBob.cs" />
-    <Compile Include="Assets\Fps\Characters\FirstPersonCharacter\Scripts\MouseLook.cs" />
-    <Compile Include="Assets\Fps\Characters\FirstPersonCharacter\Scripts\RigidbodyFirstPersonController.cs" />
-    <Compile Include="Assets\Fps\Characters\RollerBall\Scripts\Ball.cs" />
-    <Compile Include="Assets\Fps\Characters\RollerBall\Scripts\BallUserControl.cs" />
-    <Compile Include="Assets\Fps\Characters\ThirdPersonCharacter\Scripts\AICharacterControl.cs" />
-    <Compile Include="Assets\Fps\Characters\ThirdPersonCharacter\Scripts\ThirdPersonCharacter.cs" />
-    <Compile Include="Assets\Fps\Characters\ThirdPersonCharacter\Scripts\ThirdPersonUserControl.cs" />
-    <Compile Include="Assets\Fps\CrossPlatformInput\Scripts\AxisTouchButton.cs" />
-    <Compile Include="Assets\Fps\CrossPlatformInput\Scripts\ButtonHandler.cs" />
-    <Compile Include="Assets\Fps\CrossPlatformInput\Scripts\CrossPlatformInputManager.cs" />
-    <Compile Include="Assets\Fps\CrossPlatformInput\Scripts\InputAxisScrollbar.cs" />
-    <Compile Include="Assets\Fps\CrossPlatformInput\Scripts\Joystick.cs" />
-    <Compile Include="Assets\Fps\CrossPlatformInput\Scripts\MobileControlRig.cs" />
-    <Compile Include="Assets\Fps\CrossPlatformInput\Scripts\PlatformSpecific\MobileInput.cs" />
-    <Compile Include="Assets\Fps\CrossPlatformInput\Scripts\PlatformSpecific\StandaloneInput.cs" />
-    <Compile Include="Assets\Fps\CrossPlatformInput\Scripts\TiltInput.cs" />
-    <Compile Include="Assets\Fps\CrossPlatformInput\Scripts\TouchPad.cs" />
-    <Compile Include="Assets\Fps\CrossPlatformInput\Scripts\VirtualInput.cs" />
-    <Compile Include="Assets\Fps\Utility\ActivateTrigger.cs" />
-    <Compile Include="Assets\Fps\Utility\AlphaButtonClickMask.cs" />
-    <Compile Include="Assets\Fps\Utility\AutoMobileShaderSwitch.cs" />
-    <Compile Include="Assets\Fps\Utility\AutoMoveAndRotate.cs" />
-    <Compile Include="Assets\Fps\Utility\CameraRefocus.cs" />
-    <Compile Include="Assets\Fps\Utility\CurveControlledBob.cs" />
-    <Compile Include="Assets\Fps\Utility\DragRigidbody.cs" />
-    <Compile Include="Assets\Fps\Utility\DynamicShadowSettings.cs" />
-    <Compile Include="Assets\Fps\Utility\EventSystemChecker.cs" />
-    <Compile Include="Assets\Fps\Utility\FollowTarget.cs" />
-    <Compile Include="Assets\Fps\Utility\ForcedReset.cs" />
-    <Compile Include="Assets\Fps\Utility\FOVKick.cs" />
-    <Compile Include="Assets\Fps\Utility\FPSCounter.cs" />
-    <Compile Include="Assets\Fps\Utility\LerpControlledBob.cs" />
-    <Compile Include="Assets\Fps\Utility\ObjectResetter.cs" />
-    <Compile Include="Assets\Fps\Utility\ParticleSystemDestroyer.cs" />
-    <Compile Include="Assets\Fps\Utility\PlatformSpecificContent.cs" />
-    <Compile Include="Assets\Fps\Utility\SimpleActivatorMenu.cs" />
-    <Compile Include="Assets\Fps\Utility\SimpleMouseRotator.cs" />
-    <Compile Include="Assets\Fps\Utility\SmoothFollow.cs" />
-    <Compile Include="Assets\Fps\Utility\TimedObjectActivator.cs" />
-    <Compile Include="Assets\Fps\Utility\TimedObjectDestructor.cs" />
-    <Compile Include="Assets\Fps\Utility\WaypointCircuit.cs" />
-    <Compile Include="Assets\Fps\Utility\WaypointProgressTracker.cs" />
+    <Compile Include="Assets\_Fps\Characters\FirstPersonCharacter\Scripts\FirstPersonController.cs" />
+    <Compile Include="Assets\_Fps\Characters\FirstPersonCharacter\Scripts\HeadBob.cs" />
+    <Compile Include="Assets\_Fps\Characters\FirstPersonCharacter\Scripts\MouseLook.cs" />
+    <Compile Include="Assets\_Fps\Characters\FirstPersonCharacter\Scripts\RigidbodyFirstPersonController.cs" />
+    <Compile Include="Assets\_Fps\Characters\RollerBall\Scripts\Ball.cs" />
+    <Compile Include="Assets\_Fps\Characters\RollerBall\Scripts\BallUserControl.cs" />
+    <Compile Include="Assets\_Fps\Characters\ThirdPersonCharacter\Scripts\AICharacterControl.cs" />
+    <Compile Include="Assets\_Fps\Characters\ThirdPersonCharacter\Scripts\ThirdPersonCharacter.cs" />
+    <Compile Include="Assets\_Fps\Characters\ThirdPersonCharacter\Scripts\ThirdPersonUserControl.cs" />
+    <Compile Include="Assets\_Fps\CrossPlatformInput\Scripts\AxisTouchButton.cs" />
+    <Compile Include="Assets\_Fps\CrossPlatformInput\Scripts\ButtonHandler.cs" />
+    <Compile Include="Assets\_Fps\CrossPlatformInput\Scripts\CrossPlatformInputManager.cs" />
+    <Compile Include="Assets\_Fps\CrossPlatformInput\Scripts\InputAxisScrollbar.cs" />
+    <Compile Include="Assets\_Fps\CrossPlatformInput\Scripts\Joystick.cs" />
+    <Compile Include="Assets\_Fps\CrossPlatformInput\Scripts\MobileControlRig.cs" />
+    <Compile Include="Assets\_Fps\CrossPlatformInput\Scripts\PlatformSpecific\MobileInput.cs" />
+    <Compile Include="Assets\_Fps\CrossPlatformInput\Scripts\PlatformSpecific\StandaloneInput.cs" />
+    <Compile Include="Assets\_Fps\CrossPlatformInput\Scripts\TiltInput.cs" />
+    <Compile Include="Assets\_Fps\CrossPlatformInput\Scripts\TouchPad.cs" />
+    <Compile Include="Assets\_Fps\CrossPlatformInput\Scripts\VirtualInput.cs" />
+    <Compile Include="Assets\_Fps\Utility\ActivateTrigger.cs" />
+    <Compile Include="Assets\_Fps\Utility\AlphaButtonClickMask.cs" />
+    <Compile Include="Assets\_Fps\Utility\AutoMobileShaderSwitch.cs" />
+    <Compile Include="Assets\_Fps\Utility\AutoMoveAndRotate.cs" />
+    <Compile Include="Assets\_Fps\Utility\CameraRefocus.cs" />
+    <Compile Include="Assets\_Fps\Utility\CurveControlledBob.cs" />
+    <Compile Include="Assets\_Fps\Utility\DragRigidbody.cs" />
+    <Compile Include="Assets\_Fps\Utility\DynamicShadowSettings.cs" />
+    <Compile Include="Assets\_Fps\Utility\EventSystemChecker.cs" />
+    <Compile Include="Assets\_Fps\Utility\FollowTarget.cs" />
+    <Compile Include="Assets\_Fps\Utility\ForcedReset.cs" />
+    <Compile Include="Assets\_Fps\Utility\FOVKick.cs" />
+    <Compile Include="Assets\_Fps\Utility\FPSCounter.cs" />
+    <Compile Include="Assets\_Fps\Utility\LerpControlledBob.cs" />
+    <Compile Include="Assets\_Fps\Utility\ObjectResetter.cs" />
+    <Compile Include="Assets\_Fps\Utility\ParticleSystemDestroyer.cs" />
+    <Compile Include="Assets\_Fps\Utility\PlatformSpecificContent.cs" />
+    <Compile Include="Assets\_Fps\Utility\SimpleActivatorMenu.cs" />
+    <Compile Include="Assets\_Fps\Utility\SimpleMouseRotator.cs" />
+    <Compile Include="Assets\_Fps\Utility\SmoothFollow.cs" />
+    <Compile Include="Assets\_Fps\Utility\TimedObjectActivator.cs" />
+    <Compile Include="Assets\_Fps\Utility\TimedObjectDestructor.cs" />
+    <Compile Include="Assets\_Fps\Utility\WaypointCircuit.cs" />
+    <Compile Include="Assets\_Fps\Utility\WaypointProgressTracker.cs" />
     <Compile Include="Assets\Scripts\Enemy Scripts\Charger.cs" />
     <Compile Include="Assets\Scripts\Enemy Scripts\EnemyController.cs" />
     <Compile Include="Assets\Scripts\Enemy Scripts\Walker.cs" />
     <Compile Include="Assets\Scripts\GlueScript.cs" />
-    <Compile Include="Assets\Scripts\HighScore.cs" />
-    <Compile Include="Assets\Scripts\InventoryScript.cs" />
-    <Compile Include="Assets\Scripts\PickUp.cs" />
+    <Compile Include="Assets\Scripts\Player\HighScore.cs" />
+    <Compile Include="Assets\Scripts\Player\InventoryScript.cs" />
+    <Compile Include="Assets\Scripts\Player\PickUp.cs" />
     <Compile Include="Assets\Scripts\PlayerMovement.cs" />
     <Compile Include="Assets\Scripts\RotationScript_Oliver.cs" />
-    <Compile Include="Assets\Scripts\SaveKeys.cs" />
     <Compile Include="Assets\Scripts\SavingAndLoading\Blocks_SaveManager.cs" />
     <Compile Include="Assets\Scripts\SavingAndLoading\BlockSaveManager.cs" />
     <Compile Include="Assets\Scripts\SavingAndLoading\DataClasses\BlockData.cs" />
     <Compile Include="Assets\Scripts\SavingAndLoading\DataClasses\PlayerData.cs" />
     <Compile Include="Assets\Scripts\SavingAndLoading\DataClasses\SaveSystem.cs" />
     <Compile Include="Assets\Scripts\SavingAndLoading\PlayerSaveManager.cs" />
-    <Compile Include="Assets\Scripts\SpawnRandomBlocks.cs" />
-    <None Include="Assets\Fps\CrossPlatformInput\CrossPlatformInputGuidelines.txt" />
-    <None Include="Assets\Fps\Characters\ThirdPersonCharacter\ThirdPersonCharacterGuidelines.txt" />
-    <None Include="Assets\Fps\Characters\FirstPersonCharacter\FirstPersonCharacterGuidelines.txt" />
-    <None Include="Assets\Fps\Characters\RollerBall\RollerBallGuidelines.txt" />
+    <Compile Include="Assets\Scripts\SavingAndLoading\SaveKeys.cs" />
+    <Compile Include="Assets\Scripts\Scene set-up\SpawnFloor.cs" />
+    <Compile Include="Assets\Scripts\Scene set-up\SpawnRandomBlocks.cs" />
+    <None Include="Assets\_Fps\CrossPlatformInput\CrossPlatformInputGuidelines.txt" />
+    <None Include="Assets\_NavMeshComponents-master\ProjectSettings\ProjectVersion.txt" />
+    <None Include="Assets\_Fps\Characters\ThirdPersonCharacter\ThirdPersonCharacterGuidelines.txt" />
+    <None Include="Assets\_Fps\Characters\FirstPersonCharacter\FirstPersonCharacterGuidelines.txt" />
+    <None Include="Assets\_Fps\Characters\RollerBall\RollerBallGuidelines.txt" />
     <Reference Include="Unity.Timeline.Editor">
       <HintPath>C:/Making/Unity/Projects/FpsBaseBuilder1.1/Library/ScriptAssemblies/Unity.Timeline.Editor.dll</HintPath>
     </Reference>
@@ -733,6 +735,24 @@
     <Reference Include="System.Xml.Serialization">
       <HintPath>C:/Making/Unity/2019.1.0f2/Editor/Data/NetStandard/compat/2.0.0/shims/netfx/System.Xml.Serialization.dll</HintPath>
     </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="NavMeshComponentsExamplesEditor.csproj">
+      <Project>{28FD6DA6-EF7B-AADD-0B53-C6F29EE24A9D}</Project>
+      <Name>NavMeshComponentsExamplesEditor</Name>
+    </ProjectReference>
+    <ProjectReference Include="NavMeshComponentsEditor.csproj">
+      <Project>{8FE261EF-BE19-47DA-0EF9-88642E3F31B4}</Project>
+      <Name>NavMeshComponentsEditor</Name>
+    </ProjectReference>
+    <ProjectReference Include="NavMeshComponents.csproj">
+      <Project>{1B5C4D1C-19BE-F392-C746-37BDC4B39E36}</Project>
+      <Name>NavMeshComponents</Name>
+    </ProjectReference>
+    <ProjectReference Include="NavMeshComponentsExamples.csproj">
+      <Project>{97E22C86-FF09-4522-5E8B-071D8BAC4067}</Project>
+      <Name>NavMeshComponentsExamples</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="GenerateTargetFrameworkMonikerAttribute" />
