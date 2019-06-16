@@ -53,7 +53,7 @@ public class SpawnRandomBlocks : MonoBehaviour
                     Zpos = Random.Range(-spawnDimensions, spawnDimensions);
 
                     ObjectInstance.transform.localScale = new Vector3(Scale, Scale, Scale);
-                    ObjectInstance.transform.position = new Vector3(Xpos, Ypos, Zpos);
+                    ObjectInstance.transform.position = new Vector3(Xpos, Ypos, Zpos) + gameObject.transform.position;
 
                     ObjectInstance.name += i.ToString();
 

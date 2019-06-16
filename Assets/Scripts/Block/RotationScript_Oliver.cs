@@ -9,6 +9,9 @@ public class RotationScript_Oliver : MonoBehaviour
     float rotateSpeed = 5f;
     float pushForce = 100f;
     private bool canDrop = true;
+
+    string[] canRotateTag = { "Block" };
+    bool canRotate = false;
     //Array storing bools x = 0 y = 1 z = 2
     private BitArray Trinary = new BitArray(3);
 
@@ -16,13 +19,7 @@ public class RotationScript_Oliver : MonoBehaviour
     int x;
     int y;
     int z;
-
-    Transform Trans;
-
-    GameObject XAxis;
-    GameObject YAxis;
-    GameObject ZAxis;
-
+    
     GameObject AxisHolder;
 
     GameObject axisInstance;
@@ -33,32 +30,29 @@ public class RotationScript_Oliver : MonoBehaviour
         rb = GetComponent<Rigidbody>();
         rb.useGravity = false;
 
-        
-
         AxisHolder = GameObject.FindWithTag("AxisHolder");
-        
-
-        Trans = GetComponent<Transform>();
-
-        // loads prefabs from the special resources folder
-        // should Just create primitives soon
-        XAxis = Resources.Load("XAxis") as GameObject;
-        YAxis = Resources.Load("YAxis") as GameObject;
-        ZAxis = Resources.Load("ZAxis") as GameObject;
-        //axisInstance = Resources.Load("axisInstance") as GameObject;
+        foreach (string tag in canRotateTag)
+        {
+            // a |= b means a = a||b
+            canRotate |= transform.tag.Equals(tag);
+        }
 
 
-        //Creates first axis on y       
-        Trinary[1] = true;
-        AxisCreate();
+        //Creates first axis on y
+        if (canRotate)
+        {
+            Trinary[1] = true;
+
+            AxisCreate();
+        }
+            
         
     }
 
     // Update is called once per frame
     void Update()
     {
-
-        // converts bools to ints
+        if (canRotate)
         {
             if (Trinary[0])
             {
@@ -81,26 +75,26 @@ public class RotationScript_Oliver : MonoBehaviour
             }
             else
                 z = 0;
-        }
 
-        //Rotates left and right
-        if (Input.GetKey(KeyCode.LeftArrow))
-        {
-            rb.transform.Rotate(new Vector3(x, y, z) * rotateSpeed);
-            
-        }
-        if (Input.GetKey(KeyCode.RightArrow))
-        {
-            rb.transform.Rotate(new Vector3(x, y, z) * -rotateSpeed);
-        }
 
-        //Changes axis of rotation
-        if (Input.GetKeyDown(KeyCode.UpArrow))
-        {
-            
-            AxisChange();
-        }
+            //Rotates left and right
+            if (Input.GetKey(KeyCode.LeftArrow))
+            {
+                transform.Rotate(new Vector3(x, y, z) * rotateSpeed);
 
+            }
+            if (Input.GetKey(KeyCode.RightArrow))
+            {
+                transform.Rotate(new Vector3(x, y, z) * -rotateSpeed);
+            }
+
+            //Changes axis of rotation
+            if (Input.GetKeyDown(KeyCode.UpArrow))
+            {
+
+                AxisChange();
+            }
+        }
         //throws currently selected block on e press
         if (Input.GetKeyDown("e") && canDrop)
         {
@@ -121,7 +115,11 @@ public class RotationScript_Oliver : MonoBehaviour
 
     public void OnDestroy()
     {
-        Destroy(GameObject.FindWithTag("Axis"));
+        if (canRotate)
+        {
+            axisInstance.SetActive(false);
+
+        }
     }
 
     void AxisChange()
@@ -153,30 +151,40 @@ public class RotationScript_Oliver : MonoBehaviour
 
     void AxisCreate()
     {
-        Destroy(GameObject.FindWithTag("Axis"));
+        foreach(Transform axis in AxisHolder.transform)
+        {
+            axis.gameObject.SetActive(false);
+        }
+
         // Creates axis based on prefab scale, and object scale times 1.5 for one axis
         if (Trinary[0])
         {
 
-            axisInstance = Instantiate(XAxis, transform.position, transform.rotation, AxisHolder.transform);
-            axisInstance.transform.localScale = new Vector3(Trans.localScale.x * 1.5f, XAxis.transform.localScale.y, XAxis.transform.localScale.z);
+            //axisInstance = Instantiate(XAxis, transform.position, transform.rotation, AxisHolder.transform);
+            axisInstance = AxisHolder.transform.GetChild(0).gameObject;
+            axisInstance.SetActive(true);
+            axisInstance.transform.rotation = transform.rotation;
+            axisInstance.transform.localScale = new Vector3(transform.localScale.x * 1.5f, axisInstance.transform.localScale.y, axisInstance.transform.localScale.z);
             
 
         }
 
         if (Trinary[1])
         {
-            axisInstance = Instantiate(YAxis, transform.position, transform.rotation, AxisHolder.transform);
-            axisInstance.transform.localScale = new Vector3(YAxis.transform.localScale.x, Trans.localScale.x * 1.5f , YAxis.transform.localScale.z);
-            
+            //axisInstance = Instantiate(YAxis, transform.position, transform.rotation, AxisHolder.transform);
+            axisInstance = AxisHolder.transform.GetChild(1).gameObject;
+            axisInstance.SetActive(true);
+            axisInstance.transform.rotation = transform.rotation;
+            axisInstance.transform.localScale = new Vector3(axisInstance.transform.localScale.x, transform.localScale.x * 1.5f , axisInstance.transform.localScale.z);
         }
 
         if (Trinary[2])
         {
-
-            axisInstance = Instantiate(ZAxis, transform.position, transform.rotation, AxisHolder.transform);
-            axisInstance.transform.localScale = new Vector3(ZAxis.transform.localScale.x, ZAxis.transform.localScale.y, Trans.localScale.x * 1.5f);
-            
+            //axisInstance = Instantiate(ZAxis, transform.position, transform.rotation, AxisHolder.transform);
+            axisInstance = AxisHolder.transform.GetChild(2).gameObject;
+            axisInstance.SetActive(true);
+            axisInstance.transform.rotation = transform.rotation;
+            axisInstance.transform.localScale = new Vector3(axisInstance.transform.localScale.x, axisInstance.transform.localScale.y, transform.localScale.z * 1.5f);
         }
     }
 

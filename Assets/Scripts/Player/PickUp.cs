@@ -5,14 +5,19 @@ using UnityEngine;
 public class PickUp : MonoBehaviour
 {
 
-    public float damage = 10f;
     public float range = 10f;
 
     public string[] canPickupTag;
 
     public Camera fpsCam;
-    public GameObject pickerUpper;
 
+    private Transform parent;
+
+
+    void Start()
+    {
+        parent = transform.parent;
+    }
     // Update is called once per frame
     void Update()
     {
@@ -27,17 +32,17 @@ public class PickUp : MonoBehaviour
         RaycastHit hit;
         bool canPickUp = false;
 
-        //checks for Hit?
         if (Physics.Raycast(fpsCam.transform.position, fpsCam.transform.forward, out hit, range))
         {
-            //Debug.Log(hit.transform.name);
 
-            foreach (string _tag in canPickupTag)
+            foreach (string tag in canPickupTag)
             {
-                canPickUp |= hit.transform.tag.Equals(_tag);
+                // a |= b means a = a||b
+                canPickUp |= hit.transform.tag.Equals(tag);
             }
 
-            if (canPickUp && pickerUpper.activeSelf)
+            // If can pickup and is active
+            if (canPickUp && gameObject.activeSelf)
             {
                 // Pick object is the object clicked
                 GameObject pickObject = hit.transform.gameObject;
@@ -49,10 +54,24 @@ public class PickUp : MonoBehaviour
                 }
 
                 // clones the object outside of the inventory
-                GameObject hitter = Instantiate(pickObject, transform);
-                hitter.transform.position = transform.position;
-                hitter.transform.rotation = transform.rotation;
-                hitter.GetComponent<BlockSaveManager>().isInventoryObJect = true;
+                GameObject hitter = Instantiate(pickObject, parent);
+                if(hitter.tag == "Weapon")
+                {
+                    hitter.transform.position = parent.position + new Vector3(1.2f, -0.8f, -0.8f);
+                    //new Quaternion() quaternion = Quaternion.Euler(-115, 11, -125);
+                    hitter.transform.localRotation = Quaternion.Euler(new Vector3(-115, 11, -125));
+                }
+                else
+                {
+                    hitter.transform.position = parent.position;
+                    hitter.transform.rotation = parent.rotation;
+                }
+                
+
+                if (hitter.GetComponent<BlockSaveManager>() != null)
+                {
+                    hitter.GetComponent<BlockSaveManager>().isInventoryObJect = true;
+                }
 
                 // Checks for gluescript
                 if (hitter.GetComponent<GlueScript>() != null)

@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AI;
 
 public class InventoryScript : MonoBehaviour
 {
@@ -12,7 +13,6 @@ public class InventoryScript : MonoBehaviour
     int previousActiveItemIndex;
     public string[] canDropTag;
     
-    // Active Grabber?
     private GameObject activeGB;
 
     // Start is called before the first frame update
@@ -41,11 +41,13 @@ public class InventoryScript : MonoBehaviour
                 activeItemIndex--;
         }
 
-        if (Input.GetButtonDown("Fire1") || Input.GetButtonDown("Fire2"))
+        if ( Input.GetButtonDown("Fire2"))
         {
             
                 activeItemIndex = 0;
         }
+
+
 
 
         if (previousActiveItemIndex != activeItemIndex || transform.childCount == 1)
@@ -75,7 +77,7 @@ public class InventoryScript : MonoBehaviour
         bool canDrop = false;
         foreach ( Transform item in transform)
         {
-            //so you can't drop towers after picking up, towers are made only of blocks
+            //so you can't drop towers after picking up
             if (item.tag == "Tower")
                 item.tag = "Block";
             
@@ -100,10 +102,8 @@ public class InventoryScript : MonoBehaviour
                     item.gameObject.AddComponent<RotationScript_Oliver>();
 
                     // for when the object has multiple colliders
-
                     foreach (Collider collider in item.GetComponents<Collider>())
                         collider.isTrigger = true;
-                    
 
                     
                 }

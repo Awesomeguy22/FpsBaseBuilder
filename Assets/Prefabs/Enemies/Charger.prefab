@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 100941346190170223}
   - component: {fileID: 100941346190170221}
   - component: {fileID: 100941346190170220}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Head
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -93,7 +93,7 @@ GameObject:
   - component: {fileID: 100941346782184122}
   - component: {fileID: 100941346782184120}
   - component: {fileID: 100941346782184123}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Body
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -175,10 +175,11 @@ GameObject:
   - component: {fileID: 100941347759877986}
   - component: {fileID: 100941347759877989}
   - component: {fileID: 100941347759877988}
-  - component: {fileID: 8184245778121200877}
+  - component: {fileID: 5214266672092241121}
+  - component: {fileID: 6861713805069665446}
   m_Layer: 0
   m_Name: Charger
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -212,8 +213,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1, y: 1.265, z: 3.29}
-  m_Center: {x: 0, y: 0.13, z: 0.4000001}
+  m_Size: {x: 1, y: 1.265, z: 3.3}
+  m_Center: {x: 0, y: 0.13, z: 0.4}
 --- !u!195 &100941347759877989
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -257,11 +258,23 @@ MonoBehaviour:
   chargeLength: 3
   charging: {fileID: 2100000, guid: cc210fed4146175419a8b94b4232223e, type: 2}
   notCharging: {fileID: 2100000, guid: c7bb51daabfbd6c449a1906a37a008fd, type: 2}
---- !u!54 &8184245778121200877
+--- !u!114 &5214266672092241121
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 100941347759877990}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 828e67430ad12e6408e650bd9f4ee2b7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  health: 25
+--- !u!54 &6861713805069665446
 Rigidbody:
   m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 8138802439374429739, guid: afb24035591d2b545928bdd2a7463784,
-    type: 3}
+  m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 100941347759877990}

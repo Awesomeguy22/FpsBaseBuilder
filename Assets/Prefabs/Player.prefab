@@ -488,7 +488,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 9109158918769225297}
-  - component: {fileID: 9109158918769225298}
   - component: {fileID: 9109158918769225299}
   m_Layer: 2
   m_Name: Inventory
@@ -513,26 +512,6 @@ Transform:
   m_Father: {fileID: 9109158918377541348}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &9109158918769225298
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 3509159787778351955, guid: 759d01d695cc47142bd78b6969959582,
-    type: 3}
-  m_PrefabInstance: {fileID: 5681627356599520882}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 9109158918769225300}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 74cb6cbb4312c49d2b5be13bc987afb7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  damage: 10
-  range: 10
-  canPickupTag:
-  - Block
-  - Tower
-  fpsCam: {fileID: 9109158918375936230}
-  pickerUpper: {fileID: 9109158918447219725}
 --- !u!114 &9109158918769225299
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -557,31 +536,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 9109158918377541348}
     m_Modifications:
-    - target: {fileID: 3509159787778351958, guid: 759d01d695cc47142bd78b6969959582,
-        type: 3}
-      propertyPath: m_Name
-      value: Inventory
-      objectReference: {fileID: 0}
-    - target: {fileID: 3509159787778351958, guid: 759d01d695cc47142bd78b6969959582,
-        type: 3}
-      propertyPath: m_TagString
-      value: Inventory
-      objectReference: {fileID: 0}
-    - target: {fileID: 3509159787778351958, guid: 759d01d695cc47142bd78b6969959582,
-        type: 3}
-      propertyPath: m_Layer
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 3509159787778351952, guid: 759d01d695cc47142bd78b6969959582,
-        type: 3}
-      propertyPath: canDropTag.Array.size
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 3509159787778351952, guid: 759d01d695cc47142bd78b6969959582,
-        type: 3}
-      propertyPath: canDropTag.Array.data[1]
-      value: Tower
-      objectReference: {fileID: 0}
     - target: {fileID: 3509159787778351953, guid: 759d01d695cc47142bd78b6969959582,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -637,6 +591,26 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3509159787778351958, guid: 759d01d695cc47142bd78b6969959582,
+        type: 3}
+      propertyPath: m_Name
+      value: Inventory
+      objectReference: {fileID: 0}
+    - target: {fileID: 3509159787778351958, guid: 759d01d695cc47142bd78b6969959582,
+        type: 3}
+      propertyPath: m_TagString
+      value: Inventory
+      objectReference: {fileID: 0}
+    - target: {fileID: 3509159787778351958, guid: 759d01d695cc47142bd78b6969959582,
+        type: 3}
+      propertyPath: m_Layer
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3509159788971245542, guid: 759d01d695cc47142bd78b6969959582,
+        type: 3}
+      propertyPath: m_Layer
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 3509159787778351955, guid: 759d01d695cc47142bd78b6969959582,
         type: 3}
       propertyPath: canPickupTag.Array.size
@@ -657,10 +631,16 @@ PrefabInstance:
       propertyPath: range
       value: 10
       objectReference: {fileID: 0}
-    - target: {fileID: 3509159788971245542, guid: 759d01d695cc47142bd78b6969959582,
+    - target: {fileID: 3509159787778351952, guid: 759d01d695cc47142bd78b6969959582,
         type: 3}
-      propertyPath: m_Layer
+      propertyPath: canDropTag.Array.size
       value: 2
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    - target: {fileID: 3509159787778351952, guid: 759d01d695cc47142bd78b6969959582,
+        type: 3}
+      propertyPath: canDropTag.Array.data[1]
+      value: Tower
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 0}
   m_SourcePrefab: {fileID: 100100000, guid: 759d01d695cc47142bd78b6969959582, type: 3}

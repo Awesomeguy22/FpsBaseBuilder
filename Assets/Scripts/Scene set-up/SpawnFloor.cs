@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AI;
 
 public class SpawnFloor : MonoBehaviour
 {
@@ -24,6 +25,7 @@ public class SpawnFloor : MonoBehaviour
     void Start()
     {
         CreateInstances(Tiles, tileWeights, gridDimensions);
+        //gameObject.GetComponent<NavMeshSurface>().
     }
 
     void CreateInstances(GameObject[] Tiles, int[] tileWeights, int gridDimensions)
@@ -79,7 +81,7 @@ public class SpawnFloor : MonoBehaviour
 
 
                 // Creates tile based on position in square
-                ObjectInstance = Instantiate(Tiles[tileIndex], new Vector3(Xpos, Ypos, Zpos), Quaternion.identity, gameObject.transform);
+                ObjectInstance = Instantiate(Tiles[tileIndex], new Vector3(Xpos, Ypos, Zpos) + gameObject.transform.position, Quaternion.identity, gameObject.transform);
                     ObjectInstance.transform.localScale = Vector3.one * tileSize;
                     ObjectInstance.name += i.ToString() + ", " + j.ToString();
 
