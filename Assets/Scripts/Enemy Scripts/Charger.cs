@@ -10,6 +10,7 @@ public class Charger : MonoBehaviour
     public NavMeshAgent enemyNavMeshAgent;
 
     public string[] findTags;
+    public float detectRange;
 
     public float chargeInterval = 5f;
     public float chargeLength = 5f;
@@ -34,36 +35,44 @@ public class Charger : MonoBehaviour
     void Update()
     {
 
-        GameObject target = FindNearestTaggedObject(findTags);
+        GameObject target = FindNearestTaggedObject(findTags, detectRange);
 
         //Debug.Log("Time: " + counter.ToString());
 
 
         counter += Time.deltaTime;
-        if (counter > chargeInterval)
+        if (target != null)
         {
-            // Charging
-            enemyNavMeshAgent.isStopped = false;
-            enemyNavMeshAgent.SetDestination(target.transform.position);
-            meshRenderer.material = charging;
-
-            if (counter > chargeInterval + chargeLength)
+            if (counter > chargeInterval)
             {
-                //Stops charging
-                counter = 0f;
-                enemyNavMeshAgent.isStopped = true;
-                //Debug.Log("Stopped Charging");
+                // Charging
+                enemyNavMeshAgent.isStopped = false;
+                enemyNavMeshAgent.SetDestination(target.transform.position);
+                meshRenderer.material = charging;
 
+                if (counter > chargeInterval + chargeLength)
+                {
+                    //Stops charging
+                    counter = 0f;
+                    enemyNavMeshAgent.isStopped = true;
+                    //Debug.Log("Stopped Charging");
+
+                }
+            }
+            else
+            {
+                // not charging
+                Vector3 XZCoords = new Vector3(target.transform.position.x, gameObject.transform.position.y, target.transform.position.z);
+                gameObject.transform.LookAt(XZCoords);
+
+                meshRenderer.material = notCharging;
             }
         }
         else
         {
-            // not charging
-            Vector3 XZCoords = new Vector3 (target.transform.position.x, gameObject.transform.position.y, target.transform.position.z);
-            gameObject.transform.LookAt(XZCoords);
-
-            meshRenderer.material = notCharging;
+            enemyNavMeshAgent.isStopped = true;
         }
+        
 
 
     }
@@ -71,7 +80,7 @@ public class Charger : MonoBehaviour
 
 
 
-    public GameObject FindNearestTaggedObject(string[] tags)
+    public GameObject FindNearestTaggedObject(string[] tags, float detectRange)
     {
 
         GameObject closestGameObject = null;
@@ -80,7 +89,7 @@ public class Charger : MonoBehaviour
         {
             GameObject[] gameObjects;
             gameObjects = GameObject.FindGameObjectsWithTag(element);
-            float distance = Mathf.Infinity;
+            float distance = detectRange;
             Vector3 position = transform.position;
             foreach (GameObject gameObject in gameObjects)
             {

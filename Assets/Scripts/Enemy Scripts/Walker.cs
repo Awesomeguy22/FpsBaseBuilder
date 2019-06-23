@@ -6,8 +6,10 @@ using UnityEngine.AI;
 public class Walker : MonoBehaviour
 {
     public NavMeshAgent enemyNavMeshAgent;
+    public float detectRange;
 
-    public string[] findTags;
+
+     public string[] findTags;
 
     // Start is called before the first frame update
     void Start()
@@ -19,14 +21,27 @@ public class Walker : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        GameObject target = FindNearestTaggedObject(findTags);
-        enemyNavMeshAgent.SetDestination(target.transform.position);
+         if(enemyNavMeshAgent.enabled == true)
+        {
+            GameObject target = FindNearestTaggedObject(findTags, detectRange);
+            if (target != null)
+            {
+                enemyNavMeshAgent.isStopped = false;
+                enemyNavMeshAgent.SetDestination(target.transform.position);
+            }
+            else
+            {
+                enemyNavMeshAgent.isStopped = true;
+            }
+        }
+        
+        
         
     }
 
 
-
-    public GameObject FindNearestTaggedObject(string[] tags)
+ 
+    public GameObject FindNearestTaggedObject(string[] tags, float detectRange)
     {
 
         GameObject closestGameObject = null;
@@ -35,7 +50,7 @@ public class Walker : MonoBehaviour
         {
             GameObject[] gameObjects;
             gameObjects = GameObject.FindGameObjectsWithTag(element);
-            float distance = Mathf.Infinity;
+            float distance = detectRange;
             Vector3 position = transform.position;
             foreach (GameObject gameObject in gameObjects)
             {
@@ -51,6 +66,6 @@ public class Walker : MonoBehaviour
 
         return closestGameObject;
     }
-
+     
 
 }

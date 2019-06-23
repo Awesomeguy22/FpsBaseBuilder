@@ -7,11 +7,20 @@ public class Weapon : MonoBehaviour
 
     public float range;
     public float damage;
+    public float stun;
     public float knockback;
+
     float countUp;
     public float attackInterval;
+    public bool canAttack;
 
     public string[] canAttackTag;
+
+    public Vector3 canAttackPos;
+    public Vector3 cantAttackPos;
+    public Vector3 canAttackdir;
+    public Vector3 cantAttackdir;
+
 
     Camera fpsCam;
 
@@ -29,16 +38,46 @@ public class Weapon : MonoBehaviour
         countUp += Time.deltaTime;
         if  (countUp < attackInterval)
         {
-            Debug.Log("reloading");
+            //Debug.Log("reloading");
 
         }
-        // checks for mouse input, then if reloading is done, then if in inventory
-        if (Input.GetButtonDown("Fire1") && countUp >= attackInterval && transform.parent != null && transform.parent.gameObject.tag == "Inventory")
+        // checks if in inventory , if not held should be inactive
+        if (transform.parent != null && transform.parent.gameObject.tag == "Inventory")
         {
-            Shoot(damage);
-            countUp = 0;
+            transform.localPosition = canAttackPos;
+            if (canAttack)
+            {
+                transform.localPosition = canAttackPos;
+                transform.localRotation = Quaternion.Euler(canAttackdir);
 
+            }
+            else
+            {
+                transform.localPosition = cantAttackPos;
+                transform.localRotation = Quaternion.Euler(cantAttackdir);
+            }
+
+
+            // checks if done reloading
+            if (countUp >= attackInterval)
+            {
+                if (Input.GetButtonDown("Fire1"))
+                {
+                    Shoot(damage);
+                    countUp = 0;
+                }
+
+                canAttack = true;
+
+            }
+            else
+            {
+                canAttack = false;
+            }
         }
+
+
+        
        
     }
 
@@ -64,7 +103,7 @@ public class Weapon : MonoBehaviour
                 if (hitObject.GetComponent<Health>() != null)
                 {
                     Health otherHealth = hitObject.GetComponent<Health>();
-                    otherHealth.TakeDamage(damage, knockback, Camera.main.transform.forward);
+                    otherHealth.TakeDamage(damage, stun, knockback, Camera.main.transform.forward);
                 }
  
             }

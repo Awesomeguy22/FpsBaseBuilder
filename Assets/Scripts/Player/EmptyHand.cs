@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PickUp : MonoBehaviour
+public class EmptyHand : MonoBehaviour
 {
 
     public float range = 10f;
@@ -31,7 +31,7 @@ public class PickUp : MonoBehaviour
     {
         RaycastHit hit;
         bool canPickUp = false;
-
+        bool isShop = false;
         if (Physics.Raycast(fpsCam.transform.position, fpsCam.transform.forward, out hit, range))
         {
 
@@ -39,6 +39,12 @@ public class PickUp : MonoBehaviour
             {
                 // a |= b means a = a||b
                 canPickUp |= hit.transform.tag.Equals(tag);
+            }
+
+            if (hit.transform.tag.Equals("ShopButton"))
+            {
+
+
             }
 
             // If can pickup and is active
@@ -57,9 +63,9 @@ public class PickUp : MonoBehaviour
                 GameObject hitter = Instantiate(pickObject, parent);
                 if(hitter.tag == "Weapon")
                 {
-                    hitter.transform.position = parent.position + new Vector3(1.2f, -0.8f, -0.8f);
-                    //new Quaternion() quaternion = Quaternion.Euler(-115, 11, -125);
-                    hitter.transform.localRotation = Quaternion.Euler(new Vector3(-115, 11, -125));
+                    // weapon script handles transform
+                    // pick up doesnt check every frame, not good enough for animations
+
                 }
                 else
                 {
