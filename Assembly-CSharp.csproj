@@ -117,6 +117,7 @@
     <Compile Include="Assets\Scripts\Enemy Scripts\Charger.cs" />
     <Compile Include="Assets\Scripts\Enemy Scripts\EnemyController.cs" />
     <Compile Include="Assets\Scripts\Enemy Scripts\Walker.cs" />
+    <Compile Include="Assets\Scripts\PeriodicSpawner.cs" />
     <Compile Include="Assets\Scripts\Player\BlockPoints.cs" />
     <Compile Include="Assets\Scripts\Player\EmptyHand.cs" />
     <Compile Include="Assets\Scripts\Player\InventoryScript.cs" />

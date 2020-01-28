@@ -36,7 +36,7 @@ public class InventoryScript : MonoBehaviour
         if (Input.GetAxis("Mouse ScrollWheel") < 0f)
         {
             if (activeItemIndex <= 0)
-                activeItemIndex = 0;
+                activeItemIndex = transform.childCount - 1;
             else
                 activeItemIndex--;
         }
